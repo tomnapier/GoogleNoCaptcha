@@ -8,9 +8,10 @@
         {
 
             //create array of data to be posted
-            $fields = array(
-                'name' => urlencode($_POST['name']),
-            );
+            $fields = array();
+            foreach ($_POST as $key => $value) {
+                $fields[] = $_POST[$key];
+            }
 
             //traverse array and prepare data for posting (key1=value1)
             foreach($fields as $key=>$value) { $fields_string  .= $key.'='.$value.'&'; };
